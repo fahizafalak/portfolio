@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fahiza Falak - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    .profile-pic {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #510b66;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+    body {
+      background:#f0c88e;
+      color: #f3eeee;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      z-index: 1000;
+      border-bottom: 1px solid #222;
+    }
+
+    header h1 {
+      color: #8e44ad;
+    }
+
+    nav a {
+      margin-left: 2rem;
+      color: #f5ecec;
+      font-weight: 500;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #8e44ad;
+    }
+
+    section {
+      padding: 100px 3rem;
+      min-height: 100vh;
+    }
+
+    #home {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #home h1 {
+      font-size: 3rem;
+      color: #8e44ad;
+      margin-bottom: 1rem;
+    }
+
+    #home p {
+      max-width: 600px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .btn {
+      padding: 0.8rem 2rem;
+      margin: 0.5rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      background: #8e44ad;
+      color: #dbcece;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(45deg, #ff4d4d, #ffdb4d, #4dff88, #4dcaff, #9b4dff);
+      background-size: 400% 400%;
+      z-index: -1;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+      animation: rainbow 5s linear infinite;
+    }
+
+    .btn:hover::before {
+      opacity: 1;
+    }
+
+    @keyframes rainbow {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    #about h2,
+    #skills h2,
+    #Get-In-Touch h2 {
+      font-size: 2.5rem;
+      color: #8e44ad;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    #about p {
+      max-width: 800px;
+      margin: auto;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+    }
+
+    .card {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 10px;
+      flex: 1 1 300px;
+      min-width: 280px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border: 2px solid #8e44ad;
+    }
+
+    .card h3 {
+      color: #8e44ad;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      line-height: 1.5;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .skill-card {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 180px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .skill-card:hover {
+      border-image: linear-gradient(45deg, #ff4d4d, #ffdb4d, #4dff88, #4dcaff, #9b4dff);
+      border-image-slice: 1;
+      transform: translateY(-10px);
+    }
+
+    .skill-card h3 {
+      margin-top: 1rem;
+      color: #8e44ad;
+    }
+
+    #skill-description {
+      margin-top: 2rem;
+      text-align: center;
+      color: #080000;
+      font-size: 1.1rem;
+    }
+
+    .Get-In-Touch-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .Get-In-Touch-card {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 10px;
+      flex: 1 1 100%;
+    }
+
+    iframe {
+      border-radius: 10px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fahiza Falak</h1>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#Get-In-Touch">Get-In-Touch</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <img src="image.jpg" alt="Fahiza Falak" class="profile-pic">
+    <h1>Fahiza Falak</h1>
+    <p>Aspiring Computer Scientist. Welcome to my digital space! I am a passionate Computer Science student exploring technology, creativity, and innovation through various projects and skills.</p>
+    <div>
+      <button class="btn" onclick="scrollAndFlashButton('about', this)">Discover My Story</button>
+      <button class="btn" onclick="document.getElementById('skills').scrollIntoView({behavior: 'smooth'})">View My Skills</button>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am Fahiza Falak, a 17-year-old BSc Computer Science student at TAW College for Women. My journey in technology began with a curiosity about how computers work and a passion for creativity. Over the years, I've explored web development, video editing, graphic design, and more. I strive to bring innovative ideas to life with code and design, always eager to learn and grow.</p>
+    <div class="about-container">
+      <div class="card">
+        <h3>Personal Information</h3>
+        <p>Name: Fahiza Falak</p>
+        <p>Age: 17 years</p>
+        <p>Field: Computer Science</p>
+        <p>Year: 2nd Year Student</p>
+        <p>Location: India</p>
+      </div>
+      <div class="card">
+        <h3>Education</h3>
+        <p>BSc Computer Science - TAW College for Women (2nd Year, Current)</p>
+        <p>Higher Secondary School - Nusrathul Islam Girls HSS (Completed)</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+      <div class="skill-card" onclick="showSkill('html')">HTML</div>
+      <div class="skill-card" onclick="showSkill('css')">CSS</div>
+      <div class="skill-card" onclick="showSkill('js')">JavaScript</div>
+      <div class="skill-card" onclick="showSkill('video')">Video Editing</div>
+      <div class="skill-card" onclick="showSkill('canva')">Canva</div>
+    </div>
+    <div id="skill-description"></div>
+  </section>
+  <section id="Get-In-Touch">
+    <h2>Get In Touch</h2>
+    <div class="contact-container">
+      <div class="Get-In-Touch-card">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScZbZENZPpNOWVSZcUf-tROish7wjL11z3EFmHs5uAWv2RJKQ/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      document.querySelectorAll('section').forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    function scrollAndFlashButton(sectionId, button) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+      button.classList.add('flash');
+      setTimeout(() => {
+        button.classList.remove('flash');
+      }, 1500);
+    }
+
+    function showSkill(skill) {
+      const descriptions = {
+        html: "I use HTML to build the structure of websites, making sure content is well-organized and accessible.",
+        css: "I design responsive, modern layouts using CSS, including animations and visual effects.",
+        js: "JavaScript allows me to add interactivity and dynamic features like modals, sliders, and validations.",
+        video: "With video editing, I create engaging content using tools like CapCut, VN, and Adobe Premiere Pro.",
+        canva: "I use Canva to design posters, social media content, and presentations with a creative touch."
+      };
+      const descBox = document.getElementById("skill-description");
+      descBox.innerHTML = `<p>${descriptions[skill]}</p>`;
+    }
+
+    const style = document.createElement('style');
+    style.textContent = `
+      .btn.flash::before {
+        opacity: 1 !important;
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
