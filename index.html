@@ -1,340 +1,598 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fahiza Falak - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    .profile-pic {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #510b66;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-    body {
-      background:#f0c88e;
-      color: #f3eeee;
-      scroll-behavior: smooth;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      background: #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 3rem;
-      z-index: 1000;
-      border-bottom: 1px solid #222;
-    }
-
-    header h1 {
-      color: #8e44ad;
-    }
-
-    nav a {
-      margin-left: 2rem;
-      color: #f5ecec;
-      font-weight: 500;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #8e44ad;
-    }
-
-    section {
-      padding: 100px 3rem;
-      min-height: 100vh;
-    }
-
-    #home {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    #home h1 {
-      font-size: 3rem;
-      color: #8e44ad;
-      margin-bottom: 1rem;
-    }
-
-    #home p {
-      max-width: 600px;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-
-    .btn {
-      padding: 0.8rem 2rem;
-      margin: 0.5rem;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      background: #8e44ad;
-      color: #dbcece;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(45deg, #ff4d4d, #ffdb4d, #4dff88, #4dcaff, #9b4dff);
-      background-size: 400% 400%;
-      z-index: -1;
-      transition: opacity 0.3s ease;
-      opacity: 0;
-      animation: rainbow 5s linear infinite;
-    }
-
-    .btn:hover::before {
-      opacity: 1;
-    }
-
-    @keyframes rainbow {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
-    #about h2,
-    #skills h2,
-    #Get-In-Touch h2 {
-      font-size: 2.5rem;
-      color: #8e44ad;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    #about p {
-      max-width: 800px;
-      margin: auto;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .about-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      gap: 2rem;
-    }
-
-    .card {
-      background: #1a1a1a;
-      padding: 1.5rem;
-      border-radius: 10px;
-      flex: 1 1 300px;
-      min-width: 280px;
-      transition: all 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      border: 2px solid #8e44ad;
-    }
-
-    .card h3 {
-      color: #8e44ad;
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      line-height: 1.5;
-    }
-
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    .skill-card {
-      background: #1a1a1a;
-      padding: 1.5rem;
-      border-radius: 10px;
-      width: 180px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-
-    .skill-card:hover {
-      border-image: linear-gradient(45deg, #ff4d4d, #ffdb4d, #4dff88, #4dcaff, #9b4dff);
-      border-image-slice: 1;
-      transform: translateY(-10px);
-    }
-
-    .skill-card h3 {
-      margin-top: 1rem;
-      color: #8e44ad;
-    }
-
-    #skill-description {
-      margin-top: 2rem;
-      text-align: center;
-      color: #080000;
-      font-size: 1.1rem;
-    }
-
-    .Get-In-Touch-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    .Get-In-Touch-card {
-      background: #1a1a1a;
-      padding: 1.5rem;
-      border-radius: 10px;
-      flex: 1 1 100%;
-    }
-
-    iframe {
-      border-radius: 10px;
-      border: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahiza Falak - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .skill-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: #10b981;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .typing-animation {
+            border-right: 2px solid #10b981;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #10b981; }
+        }
+        
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .section-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <h1>Fahiza Falak</h1>
-    <nav>
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#Get-In-Touch">Get-In-Touch</a>
+<body class="bg-gradient-to-br from-purple-50 to-blue-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-lg z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">
+                    Fahiza Falak
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-green-600 font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-green-600 font-medium">About</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-green-600 font-medium">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-green-600 font-medium">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-green-600 font-medium">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-green-600">Home</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-green-600">About</a>
+                <a href="#skills" class="block py-2 text-gray-700 hover:text-green-600">Skills</a>
+                <a href="#projects" class="block py-2 text-gray-700 hover:text-green-600">Projects</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-green-600">Contact</a>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <section id="home">
-    <img src="girl.webp" class="profile-pic">
-    <h1>Fahiza Falak</h1>
-    <p>Aspiring Computer Scientist. Welcome to my digital space! I am a passionate Computer Science student exploring technology, creativity, and innovation through various projects and skills.</p>
-    <div>
-      <button class="btn" onclick="scrollAndFlashButton('about', this)">Discover My Story</button>
-      <button class="btn" onclick="document.getElementById('skills').scrollIntoView({behavior: 'smooth'})">View My Skills</button>
-    </div>
-  </section>
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h1 class="text-5xl lg:text-7xl font-bold text-gray-800 mb-4">
+                        Hi, I'm <span class="gradient-bg bg-clip-text text-transparent">Fahiza</span>
+                    </h1>
+                    <p class="text-xl lg:text-2xl text-gray-600 mb-6 typing-animation">
+                        Computer Science Student & Creative Developer
+                    </p>
+                    <p class="text-lg text-gray-500 mb-8 leading-relaxed">
+                        Passionate about creating innovative digital solutions and bringing ideas to life through code and design.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})" 
+                                class="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                            View My Work
+                        </button>
+                        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" 
+                                class="border-2 border-green-600 text-green-600 px-8 py-3 rounded-full font-semibold hover:bg-green-600 hover:text-white transition-all duration-300">
+                            Get In Touch
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <!-- Hero visual content removed for cleaner design -->
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I am Fahiza Falak, a 17-year-old BSc Computer Science student at TAW College for Women. My journey in technology began with a curiosity about how computers work and a passion for creativity. Over the years, I've explored web development, video editing, graphic design, and more. I strive to bring innovative ideas to life with code and design, always eager to learn and grow.</p>
-    <div class="about-container">
-      <div class="card">
-        <h3>Personal Information</h3>
-        <p>Name: Fahiza Falak</p>
-        <p>Age: 17 years</p>
-        <p>Field: Computer Science</p>
-        <p>Year: 2nd Year Student</p>
-        <p>Location: India</p>
-      </div>
-      <div class="card">
-        <h3>Education</h3>
-        <p>BSc Computer Science - TAW College for Women (2nd Year, Current)</p>
-        <p>Higher Secondary School - Nusrathul Islam Girls HSS (Completed)</p>
-      </div>
-    </div>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white/50">
+        <div class="container mx-auto px-6">
+            <div class="section-reveal">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">About Me</h2>
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2">
+                        <div class="bg-gradient-to-br from-green-100 to-emerald-100 p-8 rounded-2xl shadow-lg">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Fahiza Falak</h3>
+                            <p class="text-green-600 font-medium mb-4">BSc Computer Science Student</p>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                I'm a dedicated computer science student with a passion for both technical development and creative design. 
+                                My journey in technology started with curiosity and has evolved into a deep love for creating digital experiences 
+                                that make a difference.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <span class="font-semibold text-gray-700">Location:</span>
+                                    <p class="text-gray-600">Mumbai, India</p>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-700">Education:</span>
+                                    <p class="text-gray-600">BSc Computer Science</p>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-700">Experience:</span>
+                                    <p class="text-gray-600">2+ Years</p>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-700">Projects:</span>
+                                    <p class="text-gray-600">15+ Completed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                        <span class="text-2xl">🎯</span>
+                                    </div>
+                                    <h4 class="text-xl font-semibold text-gray-800">My Mission</h4>
+                                </div>
+                                <p class="text-gray-600">To bridge the gap between technology and creativity, creating solutions that are both functional and beautiful.</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                        <span class="text-2xl">💡</span>
+                                    </div>
+                                    <h4 class="text-xl font-semibold text-gray-800">What I Love</h4>
+                                </div>
+                                <p class="text-gray-600">Problem-solving, learning new technologies, and creating engaging user experiences that make people's lives easier.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="skills">
-    <h2>My Skills</h2>
-    <div class="skills-container">
-      <div class="skill-card" onclick="showSkill('html')">HTML</div>
-      <div class="skill-card" onclick="showSkill('css')">CSS</div>
-      <div class="skill-card" onclick="showSkill('js')">JavaScript</div>
-      <div class="skill-card" onclick="showSkill('video')">Video Editing</div>
-      <div class="skill-card" onclick="showSkill('canva')">Canva</div>
-    </div>
-    <div id="skill-description"></div>
-  </section>
-  <section id="Get-In-Touch">
-    <h2>Get In Touch</h2>
-    <div class="contact-container">
-      <div class="Get-In-Touch-card">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScZbZENZPpNOWVSZcUf-tROish7wjL11z3EFmHs5uAWv2RJKQ/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-      </div>
-    </div>
-  </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="section-reveal">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">My Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- HTML Skill -->
+                    <div class="skill-card bg-white p-8 rounded-2xl shadow-lg">
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-10 h-10 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">HTML</h3>
+                            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+                                <div class="bg-orange-500 h-3 rounded-full" style="width: 90%"></div>
+                            </div>
+                            <p class="text-gray-600 text-sm">Semantic markup and modern HTML5 features</p>
+                        </div>
+                    </div>
 
-  <script>
-    const navLinks = document.querySelectorAll('nav a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      document.querySelectorAll('section').forEach(section => {
-        const sectionTop = section.offsetTop - 150;
-        if (scrollY >= sectionTop) {
-          current = section.getAttribute('id');
+                    <!-- CSS Skill -->
+                    <div class="skill-card bg-white p-8 rounded-2xl shadow-lg">
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">CSS</h3>
+                            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+                                <div class="bg-blue-500 h-3 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <p class="text-gray-600 text-sm">Responsive design, animations, and modern CSS</p>
+                        </div>
+                    </div>
+
+                    <!-- JavaScript Skill -->
+                    <div class="skill-card bg-white p-8 rounded-2xl shadow-lg">
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-10 h-10 text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">JavaScript</h3>
+                            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+                                <div class="bg-yellow-500 h-3 rounded-full" style="width: 80%"></div>
+                            </div>
+                            <p class="text-gray-600 text-sm">Interactive web applications and DOM manipulation</p>
+                        </div>
+                    </div>
+
+                    <!-- Python Skill -->
+                    <div class="skill-card bg-white p-8 rounded-2xl shadow-lg">
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-10 h-10 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.26-.02.21-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25c-.2 0-.37.09-.5.27-.14.18-.21.42-.21.72 0 .3.07.54.21.72.13.18.3.27.5.27.2 0 .37-.09.5-.27.14-.18.21-.42.21-.72 0-.3-.07-.54-.21-.72-.13-.18-.3-.27-.5-.27zm5.94-5.92c-.2 0-.37.09-.5.27-.14.18-.21.42-.21.72 0 .3.07.54.21.72.13.18.3.27.5.27.2 0 .37-.09.5-.27.14-.18.21-.42.21-.72 0-.3-.07-.54-.21-.72-.13-.18-.3-.27-.5-.27z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Python</h3>
+                            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+                                <div class="bg-green-500 h-3 rounded-full" style="width: 75%"></div>
+                            </div>
+                            <p class="text-gray-600 text-sm">Data analysis, automation, and backend development</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Editing Skill -->
+                    <div class="skill-card bg-white p-8 rounded-2xl shadow-lg">
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <span class="text-3xl">🎬</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Editing</h3>
+                            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+                                <div class="bg-red-500 h-3 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <p class="text-gray-600 text-sm">Professional video production and post-processing</p>
+                        </div>
+                    </div>
+
+                    <!-- Canva Templates Skill -->
+                    <div class="skill-card bg-white p-8 rounded-2xl shadow-lg">
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <span class="text-3xl">🎨</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Canva Design</h3>
+                            <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+                                <div class="bg-green-500 h-3 rounded-full" style="width: 90%"></div>
+                            </div>
+                            <p class="text-gray-600 text-sm">Creative templates and visual design solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white/50">
+        <div class="container mx-auto px-6">
+            <div class="section-reveal">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Featured Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center">
+                            <span class="text-6xl">🌐</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">E-Commerce Website</h3>
+                            <p class="text-gray-600 mb-4">A fully responsive online store built with HTML, CSS, and JavaScript featuring shopping cart functionality.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm">HTML</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">CSS</span>
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-600 rounded-full text-sm">JavaScript</span>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-2 rounded-lg hover:shadow-lg transition-all duration-300">
+                                View Project
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                            <span class="text-6xl">📊</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Data Visualization Tool</h3>
+                            <p class="text-gray-600 mb-4">Python-based dashboard for analyzing and visualizing complex datasets with interactive charts.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">Python</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Pandas</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">Matplotlib</span>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-2 rounded-lg hover:shadow-lg transition-all duration-300">
+                                View Project
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-pink-400 to-red-500 flex items-center justify-center">
+                            <span class="text-6xl">🎥</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Brand Video Campaign</h3>
+                            <p class="text-gray-600 mb-4">Creative video content for social media marketing with professional editing and motion graphics.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-red-100 text-red-600 rounded-full text-sm">Video Editing</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">Motion Graphics</span>
+                                <span class="px-3 py-1 bg-emerald-100 text-emerald-600 rounded-full text-sm">Canva</span>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-2 rounded-lg hover:shadow-lg transition-all duration-300">
+                                View Project
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="section-reveal">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Get In Touch</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Let's Connect!</h3>
+                            <p class="text-gray-600 mb-8 leading-relaxed">
+                                I'm always excited to collaborate on new projects and explore innovative ideas. 
+                                Whether you have a project in mind or just want to chat about technology and design, 
+                                I'd love to hear from you!
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                        <span class="text-xl">📧</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Email</p>
+                                        <p class="text-gray-600">fahiza.falak@email.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                        <span class="text-xl">📱</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Phone</p>
+                                        <p class="text-gray-600">+91 98765 43210</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                        <span class="text-xl">📍</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Location</p>
+                                        <p class="text-gray-600">Mumbai, Maharashtra, India</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <h4 class="text-lg font-semibold text-gray-800 mb-4">Follow Me</h4>
+                                <div class="flex space-x-4">
+                                    <button class="w-12 h-12 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                                        <span class="text-xl">📘</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors duration-300">
+                                        <span class="text-xl">🐦</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-blue-800 text-white rounded-lg hover:bg-blue-900 transition-colors duration-300">
+                                        <span class="text-xl">💼</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors duration-300">
+                                        <span class="text-xl">🐙</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-8 rounded-2xl shadow-lg">
+                            <form class="space-y-6">
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Name</label>
+                                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300" placeholder="Your Name">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Email</label>
+                                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300" placeholder="your.email@example.com">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Subject</label>
+                                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300" placeholder="Project Collaboration">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Message</label>
+                                    <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300" placeholder="Tell me about your project..."></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">© 2024 Fahiza Falak. Crafted with ❤️ and lots of ☕</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Intersection Observer for section reveals
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-reveal').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Typing animation for the hero section
+        const typingText = document.querySelector('.typing-animation');
+        const texts = [
+            'Computer Science Student & Creative Developer',
+            'Web Developer & Designer',
+            'Python Enthusiast & Video Editor',
+            'Creative Problem Solver'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeWriter, typeSpeed);
         }
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
-    });
 
-    function scrollAndFlashButton(sectionId, button) {
-      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-      button.classList.add('flash');
-      setTimeout(() => {
-        button.classList.remove('flash');
-      }, 1500);
-    }
+        // Start typing animation after page load
+        setTimeout(typeWriter, 1000);
 
-    function showSkill(skill) {
-      const descriptions = {
-        html: "I use HTML to build the structure of websites, making sure content is well-organized and accessible.",
-        css: "I design responsive, modern layouts using CSS, including animations and visual effects.",
-        js: "JavaScript allows me to add interactivity and dynamic features like modals, sliders, and validations.",
-        video: "With video editing, I create engaging content using tools like CapCut, VN, and Adobe Premiere Pro.",
-        canva: "I use Canva to design posters, social media content, and presentations with a creative touch."
-      };
-      const descBox = document.getElementById("skill-description");
-      descBox.innerHTML = `<p>${descriptions[skill]}</p>`;
-    }
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-white/95');
+            } else {
+                navbar.classList.remove('bg-white/95');
+            }
+        });
 
-    const style = document.createElement('style');
-    style.textContent = `
-      .btn.flash::before {
-        opacity: 1 !important;
-      }
-    `;
-    document.head.appendChild(style);
-  </script>
-</body>
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! This is a demo form. In a real implementation, this would send your message.');
+        });
+
+        // Add click handlers for project buttons
+        document.querySelectorAll('.project-card button').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('This would open the project details. This is a demo portfolio!');
+            });
+        });
+
+        // Add click handlers for social media buttons
+        document.querySelectorAll('button[class*="bg-blue"], button[class*="bg-gray"]').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('This would open the social media profile. This is a demo portfolio!');
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97854f3347db9a99',t:'MTc1NjczNTM4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
